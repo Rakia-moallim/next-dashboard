@@ -3,6 +3,7 @@ import Breadcrumbs from "@/app/ui/invoices/breadcrumbs";
 // import Form from "@/app/ui/invoices/create-form";
 import Form from "@/app/ui/invoices/edit-form"
 import { fetchInvoiceById, fetchCustomers } from "@/app/lib/data";
+import { notFound } from "next/navigation";
 
 export default async function page(props: {params: Promise<{id: string}>}){
      
@@ -13,6 +14,10 @@ export default async function page(props: {params: Promise<{id: string}>}){
         fetchCustomers(),
     ])
 
+    if (!invoice){
+        notFound();
+    }
+
     return(
         <main>
             <Breadcrumbs breadcrumbs={[
@@ -20,7 +25,6 @@ export default async function page(props: {params: Promise<{id: string}>}){
                 {label: 'Edit Invoice', href: '/dashboard/invoics/${id}/edit', active: true,},  
             ]}/>
             {/* {<Form invoice={invoices} customers={customers}/> } */}
-
             <Form invoice={invoice} customers={customers}/>
         </main>
     );
