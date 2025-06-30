@@ -12,14 +12,12 @@
 // import { fetchInvoicesPages } from "@/app/lib/data";
 // import type { Metadata } from "next";
 
-
 // interface PageProps{
 //   searchParams?: {
 //     query?: string;
 //     page?: string;
 //   };
 //   }
-  
 
 // export default async function Page({searchParams}: PageProps)
 //   {
@@ -48,8 +46,6 @@
 //     </div>
 //   );
 // }
-
-
 
 import Pagination from "@/app/ui/invoices/pagination";
 import Search from "@/app/ui/search";
